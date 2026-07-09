@@ -1,6 +1,8 @@
-export const ValidateData = (email, password) => {
+export const ValidateData = (email, password ) => {
    
-    if(!email){
+    
+ 
+  if(!email){
         return "Please enter email";
     }
     if(!password){

@@ -4,6 +4,7 @@ import {ValidateData} from "../utils/validate";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  updateProfile
 } from "firebase/auth";
 import {auth} from "../utils/firebase";
 
@@ -16,6 +17,7 @@ function Login() {
     const toggleSignInForm = ()=>{
         setIsSignInForm(!isSignInForm);
     }
+    const name = useRef(null);
     const email = useRef(null);
     const password = useRef(null);
 
@@ -28,16 +30,21 @@ function Login() {
     if(!isSignInForm){
       //Signup logic 
       try {
+        const fullName = name.current.value;
         const userCredential = await createUserWithEmailAndPassword(
           auth,
           email.current.value, 
           password.current.value
         );
-  
+        await updateProfile(userCredential.user, {
+          displayName: name.current.value,
+        });
+        await userCredential.user.reload();
         console.log("User Created:", userCredential.user);
         alert("Signup Successful!");
   
         // Clear the form
+        name.current.value = "";
         email.current.value = "";
         password.current.value = "";
       } catch (error) {
@@ -103,6 +110,7 @@ function Login() {
           
 
           {!isSignInForm && <input
+            ref={name}
             type="Name"
             placeholder="Full Name"
             className="mb-4 w-full rounded bg-gray-700 p-3 text-white"
