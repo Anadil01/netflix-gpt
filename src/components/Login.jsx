@@ -7,6 +7,7 @@ import {
   updateProfile
 } from "firebase/auth";
 import {auth} from "../utils/firebase";
+import { mainimg } from "../utils/constants";
 
 function Login() {
     const [isSignInForm , setIsSignInForm] = useState(true);
@@ -96,7 +97,7 @@ function Login() {
       {/* Background Image */}
       <img
         className="absolute inset-0 h-full w-full object-cover"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/2f42605e-e786-4a06-8612-ebc67c55ba6c/web/IN-en-20260629-TRIFECTA-perspective_76b17e8c-cff9-4c65-9938-08ca5029be6b_medium.jpg"
+        src={mainimg}
         alt="main img"
       />
 
