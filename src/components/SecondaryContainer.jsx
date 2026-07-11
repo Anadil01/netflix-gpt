@@ -13,12 +13,12 @@ function SecondaryContainer() {
 
       <MovieList
         title="Popular"
-        movies={movies.nowPlayingMovies}
+        movies={movies.popularMovies}
       />
 
       <MovieList
         title="Top Rated"
-        movies={movies.nowRatedMovies}
+        movies={movies.topRatedMovies}
       />
 
       <MovieList

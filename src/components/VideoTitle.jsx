@@ -1,6 +1,6 @@
 function VideoTitle({ title, overview }) {
     return (
-      <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-r from-black via-black/40 to-transparent text-white">
+      <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-r from-black via-black/20 to-transparent text-white">
         <div className="pt-60 px-16 w-2/5">
           <h1 className="text-6xl font-bold">
             {title}
